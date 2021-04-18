@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+    <title>Landing Page v1</title>
+
+    <style>
+    #homepg {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+    }
+    #homepg .buttons{
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #homepg .btn-primary{
+        margin-top: 70px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    </style>
+  </head>
+
+  <body>
+    <section class="text-light bg-dark" id=homepg>
+    <div class="buttons" data-aos="fade-in" data-aos-delay="300" data-aos-duration="1000">
+      <h1 class="font-weight-bold" >Welcome to My Landing Page v1</h1>
+      <h4><span class="text-slider"></span></h4>
+      <div data-aos="zoom-in-up" data-aos-delay="700" data-aos-duration="1500">
+        <button
+          type="button"
+          class="btn btn-primary btn-lg"
+          data-toggle="modal"
+          data-target="#ModalContact"
+          id="btn-contact"
+        >
+          Contact Me!
+        </button>
+      </div>
+    </div>
+  </section>
+
+    <div class="modal fade" id="ModalContact">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title font-weight-bold">My Contact</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="EmailInput">Your Email Address</label>
+    <input type="email" class="form-control" id="EmailInput" placeholder="yourname@youremail.com" required>
+            </div>
+            <div class="form-group">
+              <label for="MessageInput">Your Message</label>
+    <textarea class="form-control" id="MessageInput" rows="3" placeholder="blablablabla" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <a
+
+              class="btn btn-primary"
+              role="button"
+
+              id="SendButton"
+              href="./index.html"
+              disabled
+            >
+              Send
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    $(document).ready(function () {
+      $("#EmailInput").on("input change", function () {
+        if ($(this).val() != "") {
+          $("#SendButton").prop("disabled", false);
+        } else {
+          $("#SendButton").prop("disabled", true);
+        }
+      });
+    });
+    AOS.init();
+
+    var typed = new Typed(".text-slider", {
+        strings: ['Created by Aflah Hilmy'],
+        typeSpeed: 50,
+        loop: true,
+        backDelay: 2000,
+        backSpeed: 30,
+    });
+
+    </script>
+  </body>
+</html>
